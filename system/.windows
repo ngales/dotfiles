@@ -1,0 +1,40 @@
+# .windows
+# Windows-specific exports, aliases, functions, etc
+
+####################################################################################################
+# Exports
+####################################################################################################
+
+# TMP and TEMP are defined in the Windows environment.  Leaving
+# them set to the default Windows temporary directory can have
+# unexpected consequences.
+unset TMP
+unset TEMP
+
+# since I don't connect to a mailbox, clear to remove delays
+unset MAILCHECK
+
+# Exclude *dlls from TAB expansion
+export EXECIGNORE="*.dll"
+
+# Make Cygwin create native Windows symlinks rather than Windows RO shortcuts with special header
+export CYGWIN=winsymlinks:nativestrict
+
+####################################################################################################
+# Aliases
+####################################################################################################
+
+# Open a new terminal with correct icon, as a background job of the parent terminal
+# NOTE: there might be a better way to open a new terminal, see "cygstart"
+alias new='mintty.exe -i /Cygwin-Terminal.ico - &'
+
+####################################################################################################
+# Functions
+####################################################################################################
+
+# open a file inside Notepad++
+# if you move installs to a user-local  directory, this location must be changed as well
+# need to incorporate cygpath.exe -wa to convert to Win path names
+edit () {
+  /cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe $(cygpath -w -- "$@")
+}

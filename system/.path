@@ -1,0 +1,10 @@
+# .path
+# PATH environment variable configuration file
+
+# This file will be sourced by a different configuration file when appropriate to add PATH specifications.
+# Note that Windows will also have many variables set via the sytem GUI.
+
+# Set PATH so it includes user's private bin (first) if it exists
+if [ -d "${HOME}/bin" ] ; then
+  PATH=${HOME}/bin:${PATH}
+fi

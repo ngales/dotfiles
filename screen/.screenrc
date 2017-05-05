@@ -1,0 +1,16 @@
+# .screenrc
+
+# No Microsoft linebreaks
+crlf off
+
+# don't display the copyright page
+startup_message off
+
+# increase size of scrollback buffer
+defscrollback 15000
+
+# don't start login shells
+shell bash
+
+# no title by default - instead set in PS1
+shelltitle ""

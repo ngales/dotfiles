@@ -1,0 +1,56 @@
+# .osx
+# OS X-specific exports, aliases, functions, etc
+
+####################################################################################################
+# Exports
+####################################################################################################
+
+# java
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$JAVA_HOME/bin:$PATH
+
+# maven
+export M2_HOME=${HOME}/Dropbox/SyncSpace/maven/current
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
+
+# MacPorts Installer addition on 2013-10-01_at_00:07:34: adding an appropriate PATH variable for use with MacPorts.
+# NGALES 9/16/15:
+# moved from .bash_profile to here
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+####################################################################################################
+# Completion Configuration
+####################################################################################################
+
+# Add tab completion for `defaults read|write NSGlobalDomain`
+# You could just use `-g` instead, but I like being explicit
+complete -W "NSGlobalDomain" defaults;
+
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+####################################################################################################
+# Aliases
+####################################################################################################
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# OS X has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"

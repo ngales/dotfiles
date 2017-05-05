@@ -1,0 +1,17 @@
+# .exports
+
+# Define default editor (both line-based and screen-based)
+export EDITOR=nano
+export VISUAL=nano
+
+# Define Git editor
+export GIT_EDITOR=nano
+
+# Don't put duplicate lines in the history.
+export HISTCONTROL="ignoredups"
+
+# Whenever displaying the prompt, write the previous line to disk
+export PROMPT_COMMAND="history -a"
+
+# don't create Python .pyc and .pyo files
+export PYTHONDONTWRITEBYTECODE=1

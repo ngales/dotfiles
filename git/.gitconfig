@@ -1,0 +1,8 @@
+[user]
+	name = Nathaniel Gales
+	email = nathanielgales@gmail.com
+[core]
+	autocrlf = input
+  editor = nano
+[push]
+	default = simple

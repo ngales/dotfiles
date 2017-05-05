@@ -1,0 +1,21 @@
+# .nanorc
+# Initialization file for GNU nano, should be placed at ~/.nanorc
+
+# Please note that you must have configured nano with --enable-nanorc for this file to be read!  Also note that characters specially interpreted by the shell should not be escaped here.
+# If you are getting messages about the contents of this file not being understood, make sure it is using Unix-style line endings.
+
+# Don't wrap text at all
+# Not sure how this interacts with softwrap exactly but seems to work.
+set nowrap
+
+# Use smooth scrolling as the default
+set smooth
+
+# Enable soft line wrapping for easier viewing of very long lines
+set softwrap
+
+# Use this tab size instead of the default; it must be greater than 0
+set tabsize 2
+
+# Convert typed tabs to spaces
+set tabstospaces
